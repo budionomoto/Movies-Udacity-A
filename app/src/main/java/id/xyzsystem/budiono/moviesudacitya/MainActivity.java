@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -12,6 +14,8 @@ import android.widget.ProgressBar;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,5 +98,44 @@ public class MainActivity extends AppCompatActivity {
         Log.e("errorResultData", event.getMessage());
     }
 
+    //todo () : create menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    //todo () : click menu
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_popular:
+                errorLayout.setVisibility(View.GONE);
+                adapter.setData(new ArrayList<dModel>());
+                loadingBar.setVisibility(View.VISIBLE);
+                page = 1;
+                setPopularMovies(page);
+                break;
+            case R.id.action_top_rated:
+                errorLayout.setVisibility(View.GONE);
+                adapter.setData(new ArrayList<dModel>());
+                loadingBar.setVisibility(View.VISIBLE);
+                page = 1;
+                setTopRatedMovies(page);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //todo () : function ketika menu di klik
+    private void setTopRatedMovies(int page) {
+        MainActivity.this.setTitle(getString(R.string.top_rated_movies));
+
+        this.page = page;
+        controller.getTopRatedMovies(page);
+    }
 
 }
