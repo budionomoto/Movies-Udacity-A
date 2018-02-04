@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Movies Udacity A</string>
+    <string name="adapter_movies_poster_description">Description</string>
+    <string name="detail_title">Title</string>
+    <string name="detail_poster_description">Decription</string>
+    <string name="detail_overview_title">Title</string>
+    <string name="detail_overview_default">Overview</string>
+    <string name="detail_rating_title">Rating</string>
+    <string name="detail_rating_default">Rating</string>
+    <string name="detail_release_title">Date Realease</string>
+    <string name="detail_release_default">Date Release</string>
+    <string name="detail_rating_of"> of 10</string>
+    <string name="popular_movies">Popular Movies Udacity A</string>
+    <string name="top_rated_movies">Top Rated</string>
+    <string name="splash_icon_description">splash_icon_description</string>
+    <string name="error_text">Error Text</string>
 </resources>
